@@ -61,8 +61,6 @@ def decrypt()
         
     
 #Execute the definitions    
-#if __name__ == '__main__':
-#    autostart()
 autostart()
 encrypt()
 decrypt()
