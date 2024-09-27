@@ -4,7 +4,7 @@ from cryptography.fernet import Fernet
 
 files = []
 key = 0
-passkey = Test
+passkey = "Test"
 code = 0
 
 def autostart():
