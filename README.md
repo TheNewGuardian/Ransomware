@@ -1,3 +1,3 @@
 A little Ransomeware just for fun
 
-Educational puurpose onnly
+Educational purpose only
